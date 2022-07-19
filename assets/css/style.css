@@ -1,0 +1,17 @@
+.timeOfDay {
+    background-color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    border: 2px;
+    border-color: black;
+    border-radius: 15px 0px 0px 15px;
+}
+
+.save {
+    background-color: aqua;
+    text-align: center;
+    border: 2px;
+    border-color: black;
+    border-radius: 0px 15px 15px 0px;
+}
