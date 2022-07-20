@@ -6,6 +6,7 @@
     border-width: 1px;
     border-color: black;
     font-weight: 400; 
+    border-radius: 0px;
 }
 .row {
     margin: 4px;
