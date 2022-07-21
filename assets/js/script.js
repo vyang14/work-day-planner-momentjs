@@ -16,20 +16,30 @@ function saveContent(){
     time: this.previousElementSibling.previousElementSibling.textContent,
     task: this.previousElementSibling.value
     };
-    toStorage = fromStorage;
-    toStorage[taskNum] = saveTask;
-    localStorage.setItem("workDay", JSON.stringify(toStorage));
+    debugger;
+    if (fromStorage === null){
+        toStorage[taskNum] = saveTask;
+        localStorage.setItem("workDay", JSON.stringify(toStorage));
+    } else {
+        fromStorage[taskNum] = saveTask;
+        localStorage.setItem("workDay", JSON.stringify(fromStorage));
+    }    
 };
 
-function getTask(i){
+function getTasks(i){
     var fromStorage = JSON.parse([localStorage.getItem("workDay")]);
+    var textEl = document.querySelector('textarea');
 
-    if (fromStorage[i] != undefined) {
-        taskRow.innerHTML = fromStorage[i].task;
-    } else {
-        taskRow.innerHTML = '';
-    }
-    return;
+    forEach(textEl) => {
+        for (var i = 8; i < 19; i++) {
+            if (fromStorage[i].time = this.previousElementSibling.innerHTML) {
+                this.innerHTML = fromStorage[i].task;
+            } else {
+                this.innerHTML = '';
+            }
+        }
+    };
+    
 }
 
 setInterval(theTimeIsNow, 1000);
@@ -57,23 +67,23 @@ for (var i = 8; i < 19; i++){
         taskRow.classList.add('future');
     }
 
-    if (stored = null){
-        taskRow.innerHTML = '';
-        break;
-    } else {    
-        var fromStorage = [localStorage.getItem("workDay")];
-        if (fromStorage[i] === null) {
-            taskRow.innerHTML = '';
-            break;
-        } else {
-        if (fromStorage[i].time = hourEl.innerHTML) {
-        taskRow.innerHTML = fromStorage[i].task;
-        } else {
-        taskRow.innerHTML = '';
-        }
-    }
-    }
-debugger;
+//     if (stored = null){
+//         taskRow.innerHTML = '';
+//         break;
+//     } else {    
+//         var fromStorage = localStorage.getItem("workDay");
+//         if (fromStorage[i] === null) {
+//             taskRow.innerHTML = '';
+//             break;
+//         } else {
+//         if (fromStorage[i].time = hourEl.innerHTML) {
+//         taskRow.innerHTML = fromStorage[i].task;
+//         } else {
+//         taskRow.innerHTML = '';
+//         }
+//     }
+//     }
+// debugger;
     saveRow.innerHTML = '💾';
 
     timeEl.appendChild(hourEl);
@@ -83,4 +93,5 @@ debugger;
     planEl.appendChild(entireRow);
 
     saveRow.addEventListener('click', saveContent);
+    getTasks();
 };
